@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="permsadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DOU">
+          <Key>
+            <PropertyRef Name="DOU_id" />
+          </Key>
+          <Property Name="DOU_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DOU_number" Type="bigint" />
+          <Property Name="DOU_Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="DOU_ShortName" Type="varchar(max)" />
+          <Property Name="Street_id" Type="bigint" Nullable="false" />
+          <Property Name="DOU_House" Type="bigint" Nullable="false" />
+          <Property Name="DOU_Building" Type="varchar" MaxLength="50" />
+          <Property Name="Microdistrict_id" Type="bigint" Nullable="false" />
+          <Property Name="DOU_Phones" Type="varchar(max)" />
+          <Property Name="DOU_DirectorFIO" Type="varchar(max)" />
+          <Property Name="DOU_Email" Type="varchar(max)" />
+          <Property Name="DOU_Url" Type="varchar(max)" />
+          <Property Name="DOU_DeputyDirectorFIO" Type="varchar(max)" />
+          <Property Name="DOUForm_id" Type="bigint" />
+          <Property Name="DOUType_id" Type="bigint" />
+          <Property Name="DOUCategory_id" Type="bigint" />
+          <Property Name="DOU_IsCommercial" Type="bit" />
+          <Property Name="DOU_IsVisible" Type="bit" />
+          <Property Name="DOU_DirectorLastName" Type="varchar" MaxLength="50" />
+          <Property Name="DOU_DirectorFirstName" Type="varchar" MaxLength="50" />
+          <Property Name="DOU_DirectorPatronymicName" Type="varchar" MaxLength="50" />
+          <Property Name="DOU_oldid" Type="bigint" />
+          <Property Name="Holding_id" Type="bigint" />
+          <Property Name="CompSpec_id" Type="bigint" />
+          <Property Name="HealthSpec_id" Type="bigint" />
+          <Property Name="System_insDT" Type="datetime" />
+          <Property Name="System_insAccount" Type="bigint" />
+          <Property Name="System_updDT" Type="datetime" />
+          <Property Name="System_updAccount" Type="bigint" />
+          <Property Name="DOU_Fax" Type="bigint" />
+          <Property Name="DOUOPForm_id" Type="int" />
+          <Property Name="DOUBuildType_id" Type="int" />
+          <Property Name="DOUOwnForm_id" Type="int" />
+          <Property Name="DOUBuilWear" Type="int" />
+          <Property Name="DOU_WorkTime" Type="varchar(max)" />
+          <Property Name="DOU_MealType" Type="varchar(max)" />
+          <Property Name="DOU_AdditionalEducation" Type="varchar(max)" />
+          <Property Name="DOU_Features" Type="varchar(max)" />
+          <Property Name="DOU_OwnerName" Type="varchar(max)" />
+          <Property Name="OwnerType_id" Type="int" />
+          <Property Name="DOU_License" Type="bit" />
+          <Property Name="DOU_Cords" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="Street_id" />
+          </Key>
+          <Property Name="Street_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Street_name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="System_insDT" Type="datetime" />
+          <Property Name="System_insAccount" Type="bigint" />
+          <Property Name="System_updDT" Type="datetime" />
+          <Property Name="System_updAccount" Type="bigint" />
+        </EntityType>
+        <Association Name="FK_DOU_Street">
+          <End Role="Street" Type="Self.Street" Multiplicity="1" />
+          <End Role="DOU" Type="Self.DOU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="Street_id" />
+            </Principal>
+            <Dependent Role="DOU">
+              <PropertyRef Name="Street_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="permsadModelStoreContainer">
+          <EntitySet Name="DOU" EntityType="Self.DOU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Street" EntityType="Self.Street" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DOU_Street" Association="Self.FK_DOU_Street">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="DOU" EntitySet="DOU" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="permsadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DOU">
+          <Key>
+            <PropertyRef Name="DOU_id" />
+          </Key>
+          <Property Name="DOU_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DOU_number" Type="Int64" />
+          <Property Name="DOU_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOU_ShortName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Street_id" Type="Int64" Nullable="false" />
+          <Property Name="DOU_House" Type="Int64" Nullable="false" />
+          <Property Name="DOU_Building" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Microdistrict_id" Type="Int64" Nullable="false" />
+          <Property Name="DOU_Phones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOU_DirectorFIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOU_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOU_Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOU_DeputyDirectorFIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOUForm_id" Type="Int64" />
+          <Property Name="DOUType_id" Type="Int64" />
+          <Property Name="DOUCategory_id" Type="Int64" />
+          <Property Name="DOU_IsCommercial" Type="Boolean" />
+          <Property Name="DOU_IsVisible" Type="Boolean" />
+          <Property Name="DOU_DirectorLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOU_DirectorFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOU_DirectorPatronymicName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOU_oldid" Type="Int64" />
+          <Property Name="Holding_id" Type="Int64" />
+          <Property Name="CompSpec_id" Type="Int64" />
+          <Property Name="HealthSpec_id" Type="Int64" />
+          <Property Name="System_insDT" Type="DateTime" Precision="3" />
+          <Property Name="System_insAccount" Type="Int64" />
+          <Property Name="System_updDT" Type="DateTime" Precision="3" />
+          <Property Name="System_updAccount" Type="Int64" />
+          <Property Name="DOU_Fax" Type="Int64" />
+          <Property Name="DOUOPForm_id" Type="Int32" />
+          <Property Name="DOUBuildType_id" Type="Int32" />
+          <Property Name="DOUOwnForm_id" Type="Int32" />
+          <Property Name="DOUBuilWear" Type="Int32" />
+          <Property Name="DOU_WorkTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOU_MealType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOU_AdditionalEducation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOU_Features" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOU_OwnerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerType_id" Type="Int32" />
+          <Property Name="DOU_License" Type="Boolean" />
+          <Property Name="DOU_Cords" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Street" Relationship="Self.FK_DOU_Street" FromRole="DOU" ToRole="Street" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="Street_id" />
+          </Key>
+          <Property Name="Street_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Street_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="System_insDT" Type="DateTime" Precision="3" />
+          <Property Name="System_insAccount" Type="Int64" />
+          <Property Name="System_updDT" Type="DateTime" Precision="3" />
+          <Property Name="System_updAccount" Type="Int64" />
+          <NavigationProperty Name="DOUs" Relationship="Self.FK_DOU_Street" FromRole="Street" ToRole="DOU" />
+        </EntityType>
+        <Association Name="FK_DOU_Street">
+          <End Role="Street" Type="Self.Street" Multiplicity="1" />
+          <End Role="DOU" Type="Self.DOU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="Street_id" />
+            </Principal>
+            <Dependent Role="DOU">
+              <PropertyRef Name="Street_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="permsadEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DOUs" EntityType="Self.DOU" />
+          <EntitySet Name="Streets" EntityType="Self.Street" />
+          <AssociationSet Name="FK_DOU_Street" Association="Self.FK_DOU_Street">
+            <End Role="Street" EntitySet="Streets" />
+            <End Role="DOU" EntitySet="DOUs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="permsadModelStoreContainer" CdmEntityContainer="permsadEntities">
+          <EntitySetMapping Name="DOUs">
+            <EntityTypeMapping TypeName="permsadModel.DOU">
+              <MappingFragment StoreEntitySet="DOU">
+                <ScalarProperty Name="DOU_id" ColumnName="DOU_id" />
+                <ScalarProperty Name="DOU_number" ColumnName="DOU_number" />
+                <ScalarProperty Name="DOU_Name" ColumnName="DOU_Name" />
+                <ScalarProperty Name="DOU_ShortName" ColumnName="DOU_ShortName" />
+                <ScalarProperty Name="Street_id" ColumnName="Street_id" />
+                <ScalarProperty Name="DOU_House" ColumnName="DOU_House" />
+                <ScalarProperty Name="DOU_Building" ColumnName="DOU_Building" />
+                <ScalarProperty Name="Microdistrict_id" ColumnName="Microdistrict_id" />
+                <ScalarProperty Name="DOU_Phones" ColumnName="DOU_Phones" />
+                <ScalarProperty Name="DOU_DirectorFIO" ColumnName="DOU_DirectorFIO" />
+                <ScalarProperty Name="DOU_Email" ColumnName="DOU_Email" />
+                <ScalarProperty Name="DOU_Url" ColumnName="DOU_Url" />
+                <ScalarProperty Name="DOU_DeputyDirectorFIO" ColumnName="DOU_DeputyDirectorFIO" />
+                <ScalarProperty Name="DOUForm_id" ColumnName="DOUForm_id" />
+                <ScalarProperty Name="DOUType_id" ColumnName="DOUType_id" />
+                <ScalarProperty Name="DOUCategory_id" ColumnName="DOUCategory_id" />
+                <ScalarProperty Name="DOU_IsCommercial" ColumnName="DOU_IsCommercial" />
+                <ScalarProperty Name="DOU_IsVisible" ColumnName="DOU_IsVisible" />
+                <ScalarProperty Name="DOU_DirectorLastName" ColumnName="DOU_DirectorLastName" />
+                <ScalarProperty Name="DOU_DirectorFirstName" ColumnName="DOU_DirectorFirstName" />
+                <ScalarProperty Name="DOU_DirectorPatronymicName" ColumnName="DOU_DirectorPatronymicName" />
+                <ScalarProperty Name="DOU_oldid" ColumnName="DOU_oldid" />
+                <ScalarProperty Name="Holding_id" ColumnName="Holding_id" />
+                <ScalarProperty Name="CompSpec_id" ColumnName="CompSpec_id" />
+                <ScalarProperty Name="HealthSpec_id" ColumnName="HealthSpec_id" />
+                <ScalarProperty Name="System_insDT" ColumnName="System_insDT" />
+                <ScalarProperty Name="System_insAccount" ColumnName="System_insAccount" />
+                <ScalarProperty Name="System_updDT" ColumnName="System_updDT" />
+                <ScalarProperty Name="System_updAccount" ColumnName="System_updAccount" />
+                <ScalarProperty Name="DOU_Fax" ColumnName="DOU_Fax" />
+                <ScalarProperty Name="DOUOPForm_id" ColumnName="DOUOPForm_id" />
+                <ScalarProperty Name="DOUBuildType_id" ColumnName="DOUBuildType_id" />
+                <ScalarProperty Name="DOUOwnForm_id" ColumnName="DOUOwnForm_id" />
+                <ScalarProperty Name="DOUBuilWear" ColumnName="DOUBuilWear" />
+                <ScalarProperty Name="DOU_WorkTime" ColumnName="DOU_WorkTime" />
+                <ScalarProperty Name="DOU_MealType" ColumnName="DOU_MealType" />
+                <ScalarProperty Name="DOU_AdditionalEducation" ColumnName="DOU_AdditionalEducation" />
+                <ScalarProperty Name="DOU_Features" ColumnName="DOU_Features" />
+                <ScalarProperty Name="DOU_OwnerName" ColumnName="DOU_OwnerName" />
+                <ScalarProperty Name="OwnerType_id" ColumnName="OwnerType_id" />
+                <ScalarProperty Name="DOU_License" ColumnName="DOU_License" />
+                <ScalarProperty Name="DOU_Cords" ColumnName="DOU_Cords" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Streets">
+            <EntityTypeMapping TypeName="permsadModel.Street">
+              <MappingFragment StoreEntitySet="Street">
+                <ScalarProperty Name="Street_id" ColumnName="Street_id" />
+                <ScalarProperty Name="Street_name" ColumnName="Street_name" />
+                <ScalarProperty Name="System_insDT" ColumnName="System_insDT" />
+                <ScalarProperty Name="System_insAccount" ColumnName="System_insAccount" />
+                <ScalarProperty Name="System_updDT" ColumnName="System_updDT" />
+                <ScalarProperty Name="System_updAccount" ColumnName="System_updAccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
