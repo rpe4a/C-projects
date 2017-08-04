@@ -22,7 +22,7 @@ namespace TryThreadPool
 
             Console.WriteLine("Main thread doing other work");
 
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
 
             //Запрещаем копирование контекста исполнения потока MAIN
             ExecutionContext.SuppressFlow();
@@ -32,10 +32,10 @@ namespace TryThreadPool
 
             Console.WriteLine("Main thread doing other work");
 
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
 
             //Восстанавливаем копирование контекста исполнения потока MAIN
-            ExecutionContext.SuppressFlow();
+            ExecutionContext.RestoreFlow();
 
             Console.WriteLine("Press <Enter> to exit");
             Console.ReadKey();
