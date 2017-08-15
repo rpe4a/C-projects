@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTcpClients", "EasyTcpClients\EasyTcpClients.csproj", "{0B29F379-DC21-491B-8684-092385BD0670}"
 EndProject
@@ -46,6 +46,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrySqlDepency", "TrySqlDepency\TrySqlDepency.csproj", "{862319BB-D6B7-49CE-99CD-1212B566DE11}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryThreadPool", "TryThreadPool\TryThreadPool.csproj", "{E384FADC-659E-40D9-939B-4A549E6C2696}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrySort", "TrySort\TrySort.csproj", "{E56607A6-3B7E-4959-AAD0-7413B2CFC8F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -141,6 +143,10 @@ Global
 		{E384FADC-659E-40D9-939B-4A549E6C2696}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E384FADC-659E-40D9-939B-4A549E6C2696}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E384FADC-659E-40D9-939B-4A549E6C2696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E56607A6-3B7E-4959-AAD0-7413B2CFC8F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E56607A6-3B7E-4959-AAD0-7413B2CFC8F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E56607A6-3B7E-4959-AAD0-7413B2CFC8F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E56607A6-3B7E-4959-AAD0-7413B2CFC8F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
