@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrySearch", "TrySearch\TryS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryParallel", "TryParallel\TryParallel.csproj", "{A616A990-17AA-44BD-A893-427935F3478D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoritmicExamples", "ConsoleApplication1\AlgoritmicExamples.csproj", "{63A8D7CD-B7B2-4BE9-AAC6-2DF7D5C7D529}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +161,10 @@ Global
 		{A616A990-17AA-44BD-A893-427935F3478D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A616A990-17AA-44BD-A893-427935F3478D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A616A990-17AA-44BD-A893-427935F3478D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63A8D7CD-B7B2-4BE9-AAC6-2DF7D5C7D529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63A8D7CD-B7B2-4BE9-AAC6-2DF7D5C7D529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63A8D7CD-B7B2-4BE9-AAC6-2DF7D5C7D529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63A8D7CD-B7B2-4BE9-AAC6-2DF7D5C7D529}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

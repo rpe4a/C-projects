@@ -16,40 +16,39 @@ namespace TryParallel
             var cts = new CancellationTokenSource(1000);
             var ct = cts.Token;
 
+            //GetMethodElapsedTime(() =>
+            //{
+            //    try
+            //    {
+            //        var t = Parallel.ForEach(array,
+            //        //Если мы используем токен с опциями, то по прошествию 1 сек. будет брошено исключение об отмене
+            //        new ParallelOptions()
+            //        {
+            //            CancellationToken = ct,
+            //        },
+            //       (i, loopState) =>
+            //       {
+            //           //Так мы сами контролируем токен, и мягко выходим из цикла
+            //           //if (ct.IsCancellationRequested)
+            //           //{
+            //           //    loopState.Break();
+            //           //}
 
-            GetMethodElapsedTime(() =>
-            {
-                try
-                {
-                    var t = Parallel.ForEach(array,
-                    //Если мы используем токен с опциями, то по прошествию 1 сек. будет брошено исключение об отмене
-                    new ParallelOptions()
-                    {
-                        CancellationToken = ct,
-                    },
-                   (i, loopState) =>
-                   {
-                       //Так мы сами контролируем токен, и мягко выходим из цикла
-                       //if (ct.IsCancellationRequested)
-                       //{
-                       //    loopState.Break();
-                       //}
+            //           Task.Delay(15);
 
-                       Task.Delay(15);
+            //       });
 
-                   });
+            //        Console.WriteLine(t.LowestBreakIteration);
 
-                    Console.WriteLine(t.LowestBreakIteration);
+            //    }
+            //    catch (Exception ex)
+            //    {
 
-                }
-                catch (Exception ex)
-                {
+            //        Console.WriteLine(ex.Message);
+            //    }
+            //});
 
-                    Console.WriteLine(ex.Message);
-                }
-            });
-
-            Console.WriteLine("Ended!");
+            //Console.WriteLine("Ended!");
         }
 
         static void GetMethodElapsedTime(Action action)
