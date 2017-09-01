@@ -43,8 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcknowledgedWaitHandle .cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleHybridLock.cs" />
+    <Compile Include="SimpleMutex.cs" />
+    <Compile Include="SimpleSpinLocker.cs" />
+    <Compile Include="SimpleWaitLock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
