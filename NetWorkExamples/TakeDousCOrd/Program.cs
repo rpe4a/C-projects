@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core.Common.CommandTrees;
@@ -71,8 +71,7 @@ namespace TakeDousCOrd
             }).ToList(); //ToList Запускает все задачи на выполнение немедленно
 
 
-
-            Console.WriteLine("Main Tread before Tasks-Array: {0}", Thread.CurrentThread.ManagedThreadId);
+             Console.WriteLine("Main Tread before Tasks-Array: {0}", Thread.CurrentThread.ManagedThreadId);
 
             /*Отмена при загрузке одного доу*/
             //var result = Task.WhenAny(tasks).Result;
