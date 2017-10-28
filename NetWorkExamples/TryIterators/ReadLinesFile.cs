@@ -16,7 +16,7 @@ namespace TryIterators
             using (var _reader = reader())
             {
                 while ((line =_reader.ReadLine()) != null)
-                {
+                { 
                     yield return line;
                 }
             }
