@@ -44,6 +44,10 @@ namespace BanckAccounts.Tests
         [Sequential]
         public void FullName_Should2Times_ReturnFullName([Values("A", "B")] string surname, [Values("A", "B")] string name)
         {
+
+
+
+
             var account = new Account { Surname = surname, Name = name };
 
             account.GetFullName().Should().BeEquivalentTo($"{surname} {name}");
