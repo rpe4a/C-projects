@@ -196,6 +196,7 @@ namespace BanckAccounts.Tests
         public void Add_Should_Throw()
         {
             int counter = 0;
+            int counter1 = 1;
             var calculator = Substitute.For<ICalculator>();
             calculator.Add(1, 2).Returns(x => throw new Exception());
 
