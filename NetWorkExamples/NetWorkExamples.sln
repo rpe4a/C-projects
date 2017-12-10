@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTcpClients", "EasyTcpClients\EasyTcpClients.csproj", "{0B29F379-DC21-491B-8684-092385BD0670}"
 EndProject
@@ -58,6 +58,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanckAccounts", "BanckAccounts\BanckAccounts.csproj", "{4CCB2615-4B96-4216-9AE1-E30CAE92BCA9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanckAccounts.Tests", "BanckAccounts.Test\BanckAccounts.Tests.csproj", "{B922BE46-5AEE-4198-9A66-81AECB7EF14B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryGenericCollections", "TryGenericCollections\TryGenericCollections.csproj", "{7911DD77-101F-4353-A2CB-F256E49B9593}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -177,6 +179,10 @@ Global
 		{B922BE46-5AEE-4198-9A66-81AECB7EF14B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B922BE46-5AEE-4198-9A66-81AECB7EF14B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B922BE46-5AEE-4198-9A66-81AECB7EF14B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7911DD77-101F-4353-A2CB-F256E49B9593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7911DD77-101F-4353-A2CB-F256E49B9593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7911DD77-101F-4353-A2CB-F256E49B9593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7911DD77-101F-4353-A2CB-F256E49B9593}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
