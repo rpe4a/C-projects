@@ -17,6 +17,7 @@ namespace BanckAccounts.Tests
         public void RunAfterAnyTests()
         {
             // ...
+
         }
     }
 
@@ -28,6 +29,7 @@ namespace BanckAccounts.Tests
         public void ToStringToString_Schould_ReturnName()
         {
             var account = new Account {Surname="Nolly", Name = "Ellise"};
+
 
             account.ToString().Should().Be("Nolly Ellise");
         }
@@ -44,9 +46,6 @@ namespace BanckAccounts.Tests
         [Sequential]
         public void FullName_Should2Times_ReturnFullName([Values("A", "B")] string surname, [Values("A", "B")] string name)
         {
-
-
-
 
             var account = new Account { Surname = surname, Name = name };
 
