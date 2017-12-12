@@ -29,11 +29,6 @@ namespace BanckAccounts.Tests
         {
             var account = new Account {Surname="Nolly", Name = "Ellise"};
 
-
-
-
-
-
             account.ToString().Should().Be("Nolly Ellise");
         }
 
