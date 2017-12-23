@@ -61,6 +61,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanckAccounts.Tests", "Banc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryGenericCollections", "TryGenericCollections\TryGenericCollections.csproj", "{7911DD77-101F-4353-A2CB-F256E49B9593}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryPartitioner", "TryPartitioner\TryPartitioner.csproj", "{2C7EACB1-8C7A-411B-9B60-EAF349EE6915}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -183,6 +185,10 @@ Global
 		{7911DD77-101F-4353-A2CB-F256E49B9593}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7911DD77-101F-4353-A2CB-F256E49B9593}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7911DD77-101F-4353-A2CB-F256E49B9593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C7EACB1-8C7A-411B-9B60-EAF349EE6915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C7EACB1-8C7A-411B-9B60-EAF349EE6915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C7EACB1-8C7A-411B-9B60-EAF349EE6915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C7EACB1-8C7A-411B-9B60-EAF349EE6915}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
