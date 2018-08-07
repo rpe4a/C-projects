@@ -25,13 +25,14 @@ namespace TrySemaphoreSlim
             List<Task> trackedTasks = new List<Task>();
             int i = 0;
 
-            while (i <= 10)
+            while (i <= 20)
             {
-                await ss.WaitAsync().ConfigureAwait(false);
-                trackedTasks.Add(Task.Run(() =>
+
+                trackedTasks.Add(Task.Run(async () =>
                 {
+                    await ss.WaitAsync().ConfigureAwait(false);
                     Console.WriteLine($"Theard {Task.CurrentId} doing some work!");
-                    DoPollingThenWorkAsync();
+                    await DoPollingThenWorkAsync().ConfigureAwait(false);
                     Console.WriteLine($"Theard {Task.CurrentId} finish work!");
                     ss.Release();
                 }));
@@ -41,13 +42,9 @@ namespace TrySemaphoreSlim
             await Task.WhenAll(trackedTasks).ConfigureAwait(false);
         }
 
-        static void DoPollingThenWorkAsync()
+        static async Task DoPollingThenWorkAsync()
         {
-            var msg = "Hellow";
-            if (msg != null)
-            {
-                Thread.Sleep(2000); // process the long running CPU-bound job
-            }
+            await Task.Delay(1000).ConfigureAwait(false); // process the long running CPU-bound job
         }
     }
 }
