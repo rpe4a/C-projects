@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,6 +16,28 @@ namespace TaskExtentions
                 throw new TimeoutException();
 
             return await task.ConfigureAwait(false);
+        }
+
+        public static async Task<IEnumerable<TOut>> WithThrottle<TIn, TOut>(
+            this IEnumerable<TIn> collection,
+            Func<TIn, Task<TOut>> actionAsync,
+            int throttle)
+        {
+            var semaphore = new SemaphoreSlim(throttle, throttle);
+
+            return await Task.WhenAll(collection.Select((el) => Task.Run(async () =>
+                {
+                    await semaphore.WaitAsync().ConfigureAwait(false);
+
+                    try
+                    {
+                        return await actionAsync(el).ConfigureAwait(false);
+                    }
+                    finally
+                    {
+                        semaphore.Release();
+                    }
+                }))).ConfigureAwait(false);
         }
 
         public static Task<TResult> WithCancellation<TResult>(this Task<TResult> task, CancellationToken token)
