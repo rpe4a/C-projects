@@ -59,5 +59,22 @@ namespace TaskExtentions
 
             return tcs.Task;
         }
+
+        public static async Task<TResult[]> WenAllOrError<TResult>(params Task<TResult>[] tasks)
+        {
+            var tcs = new TaskCompletionSource<TResult[]>();
+            foreach (var task in tasks)
+            {
+                task.ContinueWith(arg =>
+                {
+                    if (arg.IsCanceled)
+                        tcs.TrySetCanceled();
+                    if (arg.IsFaulted)
+                        tcs.TrySetException(arg.Exception.InnerException);
+                }).ConfigureAwait(false);
+            }
+
+            return await (await Task.WhenAny(tcs.Task, Task.WhenAll(tasks)).ConfigureAwait(false)).ConfigureAwait(false);
+        }
     }
 }
