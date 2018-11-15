@@ -20,7 +20,6 @@ namespace TryPartitioner
 
             double[] results = new double[source.Length];
 
-
             var sw = new Stopwatch();
 
             sw.Start();

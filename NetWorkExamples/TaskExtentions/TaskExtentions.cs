@@ -76,5 +76,125 @@ namespace TaskExtentions
 
             return await (await Task.WhenAny(tcs.Task, Task.WhenAll(tasks)).ConfigureAwait(false)).ConfigureAwait(false);
         }
+
+        /// <summary>
+        ///     Выполнить все <see cref="Task" /> из <paramref name="collection" /> в <paramref name="throttling" /> потоков
+        /// </summary>
+        public static async Task RunTasksWithThrottleAsync(this IEnumerable<Task> collection, int throttling, ErrorHandler errorHandler = null)
+        {
+            if (collection == null)
+                return;
+
+            var tasks = new List<Task>();
+            errorHandler = errorHandler ?? (_ => false);
+            using (var enumerator = collection.GetEnumerator())
+            using (var semaphore = new SemaphoreSlim(throttling, throttling))
+            {
+                await semaphore.WaitAsync().ConfigureAwait(false);
+                while (enumerator.MoveNext())
+                {
+                    // ReSharper disable once AccessToDisposedClosure
+                    tasks.Add(enumerator.Current?.ContinueWith(task => HandleTaskResult(semaphore, task, errorHandler)));
+                    await semaphore.WaitAsync().ConfigureAwait(false);
+                }
+                semaphore.Release();
+                await Task.WhenAll(tasks).ConfigureAwait(false);
+            }
+        }
+
+        /// <summary>
+        ///     Выполнить все <see cref="Task" /> из <paramref name="collection" /> в <paramref name="throttling" />
+        ///     потоков с получением результата
+        /// </summary>
+        public static async Task<T[]> RunTasksWithThrottleAsync<T>(this IEnumerable<Task<T>> collection, int throttling, ErrorHandler<T> errorHandler = null)
+        {
+            if (collection == null)
+                return null;
+
+            var tasks = new List<Task<T>>();
+            errorHandler = errorHandler ?? ((Exception exception, out T value) =>
+            {
+                value = default(T);
+                return false;
+            });
+            using (var enumerator = collection.GetEnumerator())
+            using (var semaphore = new SemaphoreSlim(throttling, throttling))
+            {
+                await semaphore.WaitAsync().ConfigureAwait(false);
+                while (enumerator.MoveNext())
+                {
+                    // ReSharper disable once AccessToDisposedClosure
+                    tasks.Add(enumerator.Current?.ContinueWith(task => HandleTaskResult(semaphore, task, errorHandler)));
+                    await semaphore.WaitAsync().ConfigureAwait(false);
+                }
+                semaphore.Release();
+                return await Task.WhenAll(tasks).ConfigureAwait(false);
+            }
+        }
+
+        /// <summary>
+        ///     Группирует по <paramref name="size" /> элкментов
+        /// </summary>
+        public static IEnumerable<TSource[]> Batch<TSource>(this IEnumerable<TSource> source, int size)
+        {
+            TSource[] bucket = null;
+            var count = 0;
+
+            foreach (var item in source ?? new TSource[0])
+            {
+                if (bucket == null)
+                    bucket = new TSource[size];
+
+                bucket[count++] = item;
+                if (count < size)
+                    continue;
+
+                yield return bucket;
+                bucket = null;
+                count = 0;
+            }
+
+            if (bucket != null && count > 0)
+                yield return bucket.Take(count).ToArray();
+        }
+
+        /// <summary>
+        ///     Делегат для обработки ошибок. Если ошибка обработана возвращать <c>true</c> иначе <c>false</c>.
+        /// </summary>
+        public delegate bool ErrorHandler(Exception exception);
+
+        /// <summary>
+        ///     Делегат для обработки ошибок. Если ошибка обработана возвращать <c>true</c> иначе <c>false</c>.
+        /// </summary>
+        public delegate bool ErrorHandler<T>(Exception exception, out T errorValue);
+
+        private static T HandleTaskResult<T>(SemaphoreSlim semaphore, Task<T> task, ErrorHandler<T> errorHandler)
+        {
+            try
+            {
+                if (!task.IsFaulted)
+                    return task.Result;
+                if (!errorHandler(task.Exception, out var result) && task.Exception != null)
+                    throw task.Exception;
+                return result;
+            }
+            finally
+            {
+                semaphore.Release();
+            }
+        }
+
+        private static void HandleTaskResult(SemaphoreSlim semaphore, Task task, ErrorHandler errorHandler)
+        {
+            try
+            {
+                if (task.IsFaulted && !errorHandler(task.Exception) && task.Exception != null)
+                    throw task.Exception;
+            }
+            finally
+            {
+                semaphore.Release();
+            }
+        }
     }
 }
