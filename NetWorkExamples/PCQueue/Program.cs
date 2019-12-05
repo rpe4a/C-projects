@@ -11,11 +11,11 @@ namespace PCQueue
     {
         static void Main(string[] args)
         {
-            PCQueue q = new PCQueue(2);
+            PCQueue q = new PCQueue(5);
 
             Console.WriteLine("Enqueuing 10 items...");
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 100; i++)
             {
                 int itemNumber = i;      // To avoid the captured variable trap
                 q.EnqueueItem(() =>
