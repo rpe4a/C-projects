@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryStreaming", "TryStreaming\TryStreaming.csproj", "{3C431879-1108-45B5-8498-B00AA6F9FA1A}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{FD812D91-0CA8-49C8-AEA3-7D1BEDDA954E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonParser", "JsonParser\JsonParser.csproj", "{F4984C37-87E7-423E-B69A-7EC447C44364}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeBudget", "TimeBudget\TimeBudget.csproj", "{C8D1CDD2-DBFF-4C08-B23E-0B4557E5B333}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{F4984C37-87E7-423E-B69A-7EC447C44364}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4984C37-87E7-423E-B69A-7EC447C44364}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4984C37-87E7-423E-B69A-7EC447C44364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8D1CDD2-DBFF-4C08-B23E-0B4557E5B333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8D1CDD2-DBFF-4C08-B23E-0B4557E5B333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8D1CDD2-DBFF-4C08-B23E-0B4557E5B333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8D1CDD2-DBFF-4C08-B23E-0B4557E5B333}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
