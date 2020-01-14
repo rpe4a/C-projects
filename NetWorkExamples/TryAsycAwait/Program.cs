@@ -27,7 +27,7 @@ namespace TryAsycAwait
             Console.ReadKey();
         }
 
-        public static async Task<int> GetLengthAsyncEx(string text)
+        public static async Task<int> GetLengthAsyncEx(string text)                                                                  
         {
             return await GetLengthAsyncExImp(text);
         }
