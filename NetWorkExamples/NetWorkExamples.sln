@@ -73,6 +73,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryWaitAndPulse", "TryWaitA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCQueue", "PCQueue\PCQueue.csproj", "{2ECA55E1-DE6E-4EA2-BBD0-72AA49FC942C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryObserverable", "TryObserverable\TryObserverable.csproj", "{2A9AD8E6-489B-459E-82A0-634846D92BFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -219,6 +221,10 @@ Global
 		{2ECA55E1-DE6E-4EA2-BBD0-72AA49FC942C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2ECA55E1-DE6E-4EA2-BBD0-72AA49FC942C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2ECA55E1-DE6E-4EA2-BBD0-72AA49FC942C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A9AD8E6-489B-459E-82A0-634846D92BFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A9AD8E6-489B-459E-82A0-634846D92BFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A9AD8E6-489B-459E-82A0-634846D92BFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A9AD8E6-489B-459E-82A0-634846D92BFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
