@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTcpClients", "EasyTcpClients\EasyTcpClients.csproj", "{0B29F379-DC21-491B-8684-092385BD0670}"
 EndProject
@@ -74,6 +74,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCQueue", "PCQueue\PCQueue.csproj", "{2ECA55E1-DE6E-4EA2-BBD0-72AA49FC942C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryObserverable", "TryObserverable\TryObserverable.csproj", "{2A9AD8E6-489B-459E-82A0-634846D92BFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoritmicExamples", "ConsoleApplication1\AlgoritmicExamples.csproj", "{63A8D7CD-B7B2-4BE9-AAC6-2DF7D5C7D529}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -225,6 +227,10 @@ Global
 		{2A9AD8E6-489B-459E-82A0-634846D92BFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A9AD8E6-489B-459E-82A0-634846D92BFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A9AD8E6-489B-459E-82A0-634846D92BFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63A8D7CD-B7B2-4BE9-AAC6-2DF7D5C7D529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63A8D7CD-B7B2-4BE9-AAC6-2DF7D5C7D529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63A8D7CD-B7B2-4BE9-AAC6-2DF7D5C7D529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63A8D7CD-B7B2-4BE9-AAC6-2DF7D5C7D529}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
